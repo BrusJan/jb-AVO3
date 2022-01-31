@@ -1,0 +1,28 @@
+{
+  "root": "apps/takeaways-e2e",
+  "sourceRoot": "apps/takeaways-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/takeaways-e2e/cypress.json",
+        "devServerTarget": "takeaways:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "takeaways:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/takeaways-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["takeaways"]
+}

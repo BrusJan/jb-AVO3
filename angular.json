@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "projects": {
+    "dashboard": "apps/dashboard",
+    "dashboard-core": "libs/dashboard-core",
+    "dashboard-e2e": "apps/dashboard-e2e",
+    "footer": "apps/footer",
+    "footer-core": "libs/footer-core",
+    "footer-e2e": "apps/footer-e2e",
+    "header": "apps/header",
+    "header-core": "libs/header-core",
+    "header-e2e": "apps/header-e2e",
+    "mfe": "apps/mfe",
+    "mfe-e2e": "apps/mfe-e2e",
+    "shell": "apps/shell",
+    "shell-e2e": "apps/shell-e2e",
+    "takeaways": "apps/takeaways",
+    "takeaways-core": "libs/takeaways-core",
+    "takeaways-e2e": "apps/takeaways-e2e",
+    "ui": "libs/ui",
+    "wallet": "apps/wallet",
+    "wallet-core": "libs/wallet-core",
+    "wallet-e2e": "apps/wallet-e2e",
+    "widget": "apps/widget",
+    "widget-core": "libs/widget-core",
+    "widget-e2e": "apps/widget-e2e"
+  }
+}

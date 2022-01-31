@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/widget-core",
+  "sourceRoot": "libs/widget-core/src",
+  "prefix": "mfe",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/widget-core"],
+      "options": {
+        "jestConfig": "libs/widget-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/widget-core/src/**/*.ts",
+          "libs/widget-core/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

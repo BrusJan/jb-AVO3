@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/takeaways-core",
+  "sourceRoot": "libs/takeaways-core/src",
+  "prefix": "mfe",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/takeaways-core"],
+      "options": {
+        "jestConfig": "libs/takeaways-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/takeaways-core/src/**/*.ts",
+          "libs/takeaways-core/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

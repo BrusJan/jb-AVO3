@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/header-core",
+  "sourceRoot": "libs/header-core/src",
+  "prefix": "mfe",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/header-core"],
+      "options": {
+        "jestConfig": "libs/header-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/header-core/src/**/*.ts",
+          "libs/header-core/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

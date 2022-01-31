@@ -1,0 +1,104 @@
+{
+  "projectType": "application",
+  "root": "apps/takeaways",
+  "sourceRoot": "apps/takeaways/src",
+  "prefix": "mfe",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/takeaways",
+        "index": "apps/takeaways/src/index.html",
+        "main": "apps/takeaways/src/main.ts",
+        "polyfills": "apps/takeaways/src/polyfills.ts",
+        "tsConfig": "apps/takeaways/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/takeaways/src/favicon.ico",
+          "apps/takeaways/src/assets"
+        ],
+        "styles": ["apps/takeaways/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/takeaways/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/takeaways/src/environments/environment.ts",
+              "with": "apps/takeaways/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/takeaways/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "takeaways:build:production"
+        },
+        "development": {
+          "browserTarget": "takeaways:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4205,
+        "publicHost": "http://localhost:4205"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "takeaways:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/takeaways/src/**/*.ts",
+          "apps/takeaways/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/takeaways"],
+      "options": {
+        "jestConfig": "apps/takeaways/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

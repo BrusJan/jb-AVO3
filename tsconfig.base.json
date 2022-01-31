@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "es2020",
+    "lib": ["es2018", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@mfe/dashboard-core": ["libs/dashboard-core/src/index.ts"],
+      "@mfe/footer-core": ["libs/footer-core/src/index.ts"],
+      "@mfe/header-core": ["libs/header-core/src/index.ts"],
+      "@mfe/takeaways-core": ["libs/takeaways-core/src/index.ts"],
+      "@mfe/ui": ["libs/ui/src/index.ts"],
+      "@mfe/ui/button": ["libs/ui/src/lib/button/index.ts"],
+      "@mfe/ui/radio": ["libs/ui/src/lib/radio/index.ts"],
+      "@mfe/ui/input": ["libs/ui/src/lib/input/index.ts"],
+      "@mfe/ui/checkbox": ["libs/ui/src/lib/checkbox/index.ts"],
+      "@mfe/wallet-core": ["libs/wallet-core/src/index.ts"],
+      "@mfe/widget-core": ["libs/widget-core/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
