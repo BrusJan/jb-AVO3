@@ -1,0 +1,21 @@
+.remote-entry {
+  background-color: #143055;
+  color: white;
+  padding: 1em;
+  border: 2px dotted red;
+}
+#menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#menu li {
+  display: inline;
+  margin: 1em;
+}
+#menu a {
+  text-decoration: none;
+  color: #111;
+  background: rgb(219, 219, 219);
+  padding: .5em 1em;
+}

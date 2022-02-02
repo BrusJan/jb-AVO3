@@ -9,14 +9,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from '@mfe/ui/button';
-import { RemoteEntryComponent } from './remote-entry/entry.component';
+import { SharedModule } from '@mfe/shared';
 
 @NgModule({
-  declarations: [AppComponent, RemoteEntryComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     ButtonModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forChild([]),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

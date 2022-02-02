@@ -8,13 +8,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { RemoteEntryComponent } from './remote-entry/entry.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, RemoteEntryComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: AppComponent
+      },
+      { 
+        path: 'dashboard', 
+        loadChildren: () => import('./dashboard/dashboard.module')
+            .then(m => m.DashboardModule)
+    }
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],

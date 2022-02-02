@@ -1,2 +1,7 @@
-<h1>Header module</h1>
-<mfe-header-entry></mfe-header-entry>
+<div class="remote-entry">
+  <h2>Header Component MFE (:4201)</h2>
+  <ul id="menu">
+    <li><a routerLink="/">Home</a></li>
+    <li *ngFor="let mfe of microfrontends"><a [routerLink]="mfe.routePath">{{mfe.displayName}}</a></li>
+</ul>
+</div>

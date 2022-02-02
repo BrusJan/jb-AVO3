@@ -47,7 +47,8 @@ module.exports = {
       name: 'wallet',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/wallet/src/app/remote-entry/entry.module.ts',
+        './Module': 'apps/wallet/src/app/wallet/wallet.module.ts',
+        './WalletComponent': 'apps/wallet/src/app/wallet/wallet.component.ts',
       },
       shared: share({
         '@angular/core': {

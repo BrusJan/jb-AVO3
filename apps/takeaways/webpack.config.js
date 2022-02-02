@@ -47,7 +47,8 @@ module.exports = {
       name: 'takeaways',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/takeaways/src/app/remote-entry/entry.module.ts',
+        './Module': 'apps/takeaways/src/app/takeaways/takeaways.module.ts',
+        './TakeawaysComponent': 'apps/takeaways/src/app/takeaways/takeaways.component.ts',
       },
       shared: share({
         '@angular/core': {

@@ -3,20 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { FooterDirective } from './directives/footer.directive';
-import { HeaderDirective } from './directives/header.directive';
-import { DashboardDirective } from './directives/dashboard.directive';
+import { SharedModule } from '@mfe/shared';
 
 @NgModule({
-  declarations: [AppComponent, FooterDirective, HeaderDirective, DashboardDirective],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    SharedModule,
     RouterModule.forRoot(
       [
         {
           path: 'header',
           loadChildren: () =>
-            import('header/Module').then((m) => m.RemoteEntryModule),
+            import('header/Module').then((m) => m.AppModule),
         },
         {
           path: 'footer',
@@ -24,19 +23,19 @@ import { DashboardDirective } from './directives/dashboard.directive';
             import('footer/Module').then((m) => m.RemoteEntryModule),
         },
         {
-          path: 'dashboard',
+          path: '',
           loadChildren: () =>
-            import('dashboard/Module').then((m) => m.RemoteEntryModule),
+            import('dashboard/Module').then((m) => m.DashboardModule),
         },
         {
           path: 'wallet',
           loadChildren: () =>
-            import('wallet/Module').then((m) => m.RemoteEntryModule),
+            import('wallet/Module').then((m) => m.WalletModule),
         },
         {
           path: 'takeaways',
           loadChildren: () =>
-            import('takeaways/Module').then((m) => m.RemoteEntryModule),
+            import('takeaways/Module').then((m) => m.TakeawaysModule),
         },
         {
           path: 'widget',
@@ -50,4 +49,4 @@ import { DashboardDirective } from './directives/dashboard.directive';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

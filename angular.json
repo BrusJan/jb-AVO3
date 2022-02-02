@@ -12,7 +12,33 @@
     "header-e2e": "apps/header-e2e",
     "mfe": "apps/mfe",
     "mfe-e2e": "apps/mfe-e2e",
-    "shell": "apps/shell",
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "mfe",
+      "targets": {
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": []
+    },
+    "shell": "apps/shell",    
     "shell-e2e": "apps/shell-e2e",
     "takeaways": "apps/takeaways",
     "takeaways-core": "libs/takeaways-core",

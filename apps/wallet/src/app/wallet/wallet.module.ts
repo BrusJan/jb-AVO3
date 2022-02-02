@@ -2,19 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { RemoteEntryComponent } from './entry.component';
+import { WalletComponent } from './wallet.component';
 
 @NgModule({
-  declarations: [RemoteEntryComponent],
+  declarations: [WalletComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([
       {
         path: '',
-        component: RemoteEntryComponent,
+        component: WalletComponent,
       },
     ]),
   ],
   providers: [],
 })
-export class RemoteEntryModule {}
+export class WalletModule {}

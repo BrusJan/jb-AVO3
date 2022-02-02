@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'mfe-button',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  @Input() text = 'Button';
   constructor() {}
 }

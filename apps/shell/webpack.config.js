@@ -22,6 +22,7 @@ sharedMappings.register(
   tsConfigPath,
   [
     /* mapped paths to share */
+    '@mfe/shared',
   ],
   workspaceRootPath
 );
@@ -44,7 +45,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      library: { type: "module" },
+      library: { type: 'module' },
       remotes: {
         header: 'http://localhost:4201/remoteEntry.js',
         footer: 'http://localhost:4202/remoteEntry.js',
@@ -85,7 +86,7 @@ module.exports = {
           includeSecondaries: true,
         },
         ...sharedMappings.getDescriptors(),
-      })
+      }),
     }),
     sharedMappings.getPlugin(),
   ],

@@ -22,6 +22,7 @@ sharedMappings.register(
   tsConfigPath,
   [
     /* mapped paths to share */
+    '@mfe/shared',
   ],
   workspaceRootPath
 );
@@ -48,7 +49,7 @@ module.exports = {
       filename: 'remoteEntry.js',
       exposes: {
         './Module': 'apps/header/src/app/app.module.ts',
-        './HeaderComponent': 'apps/header/src/app/remote-entry/entry.component.ts',
+        './HeaderComponent': 'apps/header/src/app/app.component.ts',
       },
       library: { type: 'module' },
       shared: share({
@@ -83,7 +84,7 @@ module.exports = {
           includeSecondaries: true,
         },
         ...sharedMappings.getDescriptors(),
-      })
+      }),
     }),
     sharedMappings.getPlugin(),
   ],

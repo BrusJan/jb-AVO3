@@ -1,8 +1,6 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
-import { AfterViewInit, Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { DashboardDirective } from './directives/dashboard.directive';
-import { FooterDirective } from './directives/footer.directive';
-import { HeaderDirective } from './directives/header.directive';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { LookupService } from '@mfe/shared';
 
 @Component({
   selector: 'mfe-root',
@@ -10,30 +8,30 @@ import { HeaderDirective } from './directives/header.directive';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'shell';
 
-  @ViewChild(HeaderDirective, {static: true}) headerHost!: HeaderDirective;
-  @ViewChild(DashboardDirective, {static: true}) dashboardHost!: DashboardDirective;
-  @ViewChild(FooterDirective, {static: true}) footerHost!: HeaderDirective;
+  @ViewChild('headerHost', { read: ViewContainerRef, static: true })
+  headerHost: ViewContainerRef | undefined;
+  @ViewChild('dashboardHost', { read: ViewContainerRef, static: true })
+  dashboardHost: ViewContainerRef | undefined;
+  @ViewChild('footerHost', { read: ViewContainerRef, static: true })
+  footerHost: ViewContainerRef | undefined;
 
-  constructor(
-    private vcref: ViewContainerRef,
-    ) {
-  }
+  constructor() {}
 
   async ngOnInit() {
     await this.loadHeaderMfe();
-    await this.loadDashboardMfe();
     await this.loadFooterMfe();
   }
 
   private async loadHeaderMfe() {
-    const { RemoteEntryComponent } = await loadRemoteModule({
+    const { AppComponent } = await loadRemoteModule({
       remoteEntry: 'http://localhost:4201/remoteEntry.js',
       type: 'module',
       exposedModule: './HeaderComponent'
     });
-    this.headerHost.viewContainerRef.createComponent(RemoteEntryComponent);
+    if (this.headerHost) {
+      this.headerHost.createComponent(AppComponent);
+    }
   }
 
   private async loadDashboardMfe() {
@@ -42,7 +40,9 @@ export class AppComponent implements OnInit {
       type: 'module',
       exposedModule: './DashboardComponent'
     });
-    this.dashboardHost.viewContainerRef.createComponent(RemoteEntryComponent);
+    if (this.dashboardHost) {
+      this.dashboardHost.createComponent(RemoteEntryComponent);
+    }
   }
 
   private async loadFooterMfe() {
@@ -51,7 +51,9 @@ export class AppComponent implements OnInit {
       type: 'module',
       exposedModule: './FooterComponent'
     });
-    this.footerHost.viewContainerRef.createComponent(RemoteEntryComponent);
+    if (this.footerHost) {
+      this.footerHost.createComponent(RemoteEntryComponent);
+    }
   }
 
 }

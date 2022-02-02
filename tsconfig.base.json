@@ -20,12 +20,13 @@
       "@mfe/dashboard-core": ["libs/dashboard-core/src/index.ts"],
       "@mfe/footer-core": ["libs/footer-core/src/index.ts"],
       "@mfe/header-core": ["libs/header-core/src/index.ts"],
+      "@mfe/shared": ["libs/shared/src/index.ts"],
       "@mfe/takeaways-core": ["libs/takeaways-core/src/index.ts"],
       "@mfe/ui": ["libs/ui/src/index.ts"],
       "@mfe/ui/button": ["libs/ui/src/lib/button/index.ts"],
-      "@mfe/ui/radio": ["libs/ui/src/lib/radio/index.ts"],
-      "@mfe/ui/input": ["libs/ui/src/lib/input/index.ts"],
       "@mfe/ui/checkbox": ["libs/ui/src/lib/checkbox/index.ts"],
+      "@mfe/ui/input": ["libs/ui/src/lib/input/index.ts"],
+      "@mfe/ui/radio": ["libs/ui/src/lib/radio/index.ts"],
       "@mfe/wallet-core": ["libs/wallet-core/src/index.ts"],
       "@mfe/widget-core": ["libs/widget-core/src/index.ts"]
     }

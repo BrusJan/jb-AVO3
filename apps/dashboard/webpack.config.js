@@ -22,6 +22,7 @@ sharedMappings.register(
   tsConfigPath,
   [
     /* mapped paths to share */
+    '@mfe/shared',
   ],
   workspaceRootPath
 );
@@ -47,8 +48,11 @@ module.exports = {
       name: 'dashboard',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/dashboard/src/app/app.module.ts',
-        './DashboardComponent': 'apps/dashboard/src/app/remote-entry/entry.component.ts',
+        './Module': 'apps/dashboard/src/app/dashboard/dashboard.module.ts',
+        './DashboardComponent': 'apps/dashboard/src/app/dashboard/dashboard.component.ts',
+      },
+      remotes: {
+        widget: 'http://localhost:4206/remoteEntry.js',
       },
       shared: share({
         '@angular/core': {

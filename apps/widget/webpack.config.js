@@ -22,6 +22,7 @@ sharedMappings.register(
   tsConfigPath,
   [
     /* mapped paths to share */
+    '@mfe/shared',
   ],
   workspaceRootPath
 );
@@ -47,7 +48,9 @@ module.exports = {
       name: 'widget',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': 'apps/widget/src/app/remote-entry/entry.module.ts',
+        './Module': 'apps/widget/src/app/app.module.ts',
+        './WidgetComponent':
+          'apps/widget/src/app/remote-entry/entry.component.ts',
       },
       shared: share({
         '@angular/core': {
