@@ -1,0 +1,28 @@
+{
+  "root": "apps/merchant/shell-e2e",
+  "sourceRoot": "apps/merchant/shell-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/merchant/shell-e2e/cypress.json",
+        "devServerTarget": "merchant-shell:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "merchant-shell:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/merchant/shell-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["merchant-shell"]
+}

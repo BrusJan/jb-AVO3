@@ -1,7 +1,7 @@
 {
-  "npmScope": "mfe",
+  "npmScope": "avo3",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "master"
   },
   "cli": {
     "defaultCollection": "@nrwl/angular",
@@ -44,6 +44,5 @@
     "@nrwl/angular:component": {
       "style": "scss"
     }
-  },
-  "defaultProject": "shell"
+  }
 }

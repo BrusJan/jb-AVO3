@@ -1,0 +1,28 @@
+{
+  "root": "apps/customer/shell-e2e",
+  "sourceRoot": "apps/customer/shell-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/customer/shell-e2e/cypress.json",
+        "devServerTarget": "customer-shell:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "customer-shell:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/customer/shell-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["customer-shell"]
+}

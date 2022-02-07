@@ -1,0 +1,104 @@
+{
+  "projectType": "application",
+  "root": "apps/mfe/header",
+  "sourceRoot": "apps/mfe/header/src",
+  "prefix": "avo3",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mfe/header",
+        "index": "apps/mfe/header/src/index.html",
+        "main": "apps/mfe/header/src/main.ts",
+        "polyfills": "apps/mfe/header/src/polyfills.ts",
+        "tsConfig": "apps/mfe/header/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/mfe/header/src/favicon.ico",
+          "apps/mfe/header/src/assets"
+        ],
+        "styles": ["apps/mfe/header/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/mfe/header/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/mfe/header/src/environments/environment.ts",
+              "with": "apps/mfe/header/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/mfe/header/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/angular:webpack-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "mfe-header:build:production"
+        },
+        "development": {
+          "browserTarget": "mfe-header:build:development"
+        }
+      },
+      "defaultConfiguration": "development",
+      "options": {
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "mfe-header:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/mfe/header/src/**/*.ts",
+          "apps/mfe/header/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/mfe/header"],
+      "options": {
+        "jestConfig": "apps/mfe/header/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
