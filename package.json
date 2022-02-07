@@ -9,6 +9,8 @@
     "build": "nx build",
     "build:customer": "nx run customer-shell:build-mfe",
     "start:customer": "nx run customer-shell:serve-mfe",
+    "build:merchant": "nx run merchant-shell:build-mfe",
+    "start:merchant": "nx run merchant-shell:serve-mfe",
     "test": "nx test"
   },
   "private": true,

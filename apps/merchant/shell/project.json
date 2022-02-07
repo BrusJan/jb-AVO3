@@ -98,10 +98,22 @@
         "passWithNoTests": true
       }
     },
+    "build-mfe": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "nx build mfe-login",
+          "nx build merchant-shell"
+        ]
+      }
+    },
     "serve-mfe": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "commands": ["nx serve merchant-shell"]
+        "commands": [
+          "nx serve mfe-login",
+          "nx serve merchant-shell"
+        ]
       }
     }
   },

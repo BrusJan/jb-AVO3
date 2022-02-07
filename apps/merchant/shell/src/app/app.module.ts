@@ -8,9 +8,15 @@ import { RouterModule } from '@angular/router';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot([
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('mfe-login/Module').then((m) => m.RemoteEntryModule),
+      },
+    ], { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
