@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@avo3/shared/core": ["libs/shared/core/src/index.ts"],
-      "@avo3/shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@avo3/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@avo3/shared/ui/button": ["libs/shared/ui/src/lib/button/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

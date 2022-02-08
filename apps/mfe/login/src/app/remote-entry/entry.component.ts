@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'avo3-mfe-login-entry',
   template: `<div class="remote-entry">
     <h2>mfe-login's Remote Entry Component</h2>
+    <mfe-button [text]="'Login'"></mfe-button>
   </div>`,
   styles: [
     `

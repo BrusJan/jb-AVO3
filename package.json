@@ -11,7 +11,13 @@
     "start:customer": "nx run customer-shell:serve-mfe",
     "build:merchant": "nx run merchant-shell:build-mfe",
     "start:merchant": "nx run merchant-shell:serve-mfe",
-    "test": "nx test"
+    "test": "nx test",
+    "prettier:apps": "prettier --write --config ./.prettierrc \"./apps/**/*.{ts,tsx,scss,html}\"",
+    "prettier:libs": "prettier --write --config ./.prettierrc \"./libs/**/*.{ts,tsx,scss,html}\"",
+    "prettier": "npm run prettier:libs && npm run prettier:apps",
+    "prettier:apps-check": "prettier --config .prettierrc --check \"apps/**/*.{ts,css,html}\"",
+    "prettier:libs-check": "prettier --config .prettierrc --check \"libs/**/*.{ts,css,html}\"",
+    "prettier:check": "npm run prettier:apps-check && npm run prettier:libs-check"
   },
   "private": true,
   "dependencies": {
@@ -52,10 +58,26 @@
     "eslint": "~8.7.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "husky": "^7.0.4",
     "jest": "27.2.3",
     "jest-preset-angular": "11.0.0",
+    "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
     "ts-jest": "27.0.5",
     "typescript": "~4.5.2"
+  },
+  "lint-staged": {
+    "**/*.+(js|ts)": [
+      "eslint"
+    ],
+    "**/*.{js,ts,css,scss,html,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run test"
+    }
   }
 }
