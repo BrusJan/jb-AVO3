@@ -17,7 +17,8 @@
     "prettier": "npm run prettier:libs && npm run prettier:apps",
     "prettier:apps-check": "prettier --config .prettierrc --check \"apps/**/*.{ts,css,html}\"",
     "prettier:libs-check": "prettier --config .prettierrc --check \"libs/**/*.{ts,css,html}\"",
-    "prettier:check": "npm run prettier:apps-check && npm run prettier:libs-check"
+    "prettier:check": "npm run prettier:apps-check && npm run prettier:libs-check",
+    "storybook:shared-ui": "nx run shared-ui:storybook"
   },
   "private": true,
   "dependencies": {
@@ -48,8 +49,13 @@
     "@nrwl/eslint-plugin-nx": "13.7.3",
     "@nrwl/jest": "13.7.3",
     "@nrwl/linter": "13.7.3",
+    "@nrwl/storybook": "^13.7.3",
     "@nrwl/tao": "13.7.3",
     "@nrwl/workspace": "13.7.3",
+    "@storybook/addon-essentials": "~6.4.12",
+    "@storybook/angular": "~6.4.12",
+    "@storybook/builder-webpack5": "~6.4.12",
+    "@storybook/manager-webpack5": "~6.4.12",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "~5.10.0",

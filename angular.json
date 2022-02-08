@@ -10,6 +10,7 @@
     "mfe-login": "apps/mfe/login",
     "mfe-login-e2e": "apps/mfe/login-e2e",
     "shared-core": "libs/shared/core",
-    "shared-ui": "libs/shared/ui"
+    "shared-ui": "libs/shared/ui",
+    "shared-ui-e2e": "apps/shared-ui-e2e"
   }
 }
